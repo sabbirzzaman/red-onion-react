@@ -1,0 +1,26 @@
+.food-container {
+    padding: 80px 0;
+    text-align: center;
+}
+
+.food-container .container {
+    max-width: 950px;
+}
+
+.food-container a {
+    color: #000;
+    font-size: 18px;
+    font-weight: 500;
+    transition: .3s ease-in-out;
+}
+
+.food-container a:hover {
+    color: #f91944;
+}
+
+.filter-toggle {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    text-transform: capitalize;
+}

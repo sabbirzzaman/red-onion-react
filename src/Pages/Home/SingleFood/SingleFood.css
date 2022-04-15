@@ -1,0 +1,21 @@
+.food-item {
+    padding: 20px 10px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: .3s ease-in-out;
+}
+
+.food-item:hover {
+    background-color: #FFF;
+    box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+}
+
+.food-item p {
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.food-item h3 {
+    font-size: 20px;
+}
