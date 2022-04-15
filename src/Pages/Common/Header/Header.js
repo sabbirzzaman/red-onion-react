@@ -1,11 +1,16 @@
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { signOut } from 'firebase/auth';
 import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link, useNavigate, useMatch, useResolvedPath } from 'react-router-dom';
+import auth from '../../../firebase.init';
 import logo from '../../../images/logo2.png';
 import './Header.css';
 
 const Header = () => {
+    const [user] = useAuthState(auth);
+
     function CustomLink({ children, to, ...props }) {
         let resolved = useResolvedPath(to);
         let match = useMatch({ path: resolved.pathname, end: true });
@@ -39,8 +44,18 @@ const Header = () => {
 
                 <div className="navigation">
                     <FontAwesomeIcon icon={faShoppingCart}></FontAwesomeIcon>
-                    <CustomLink to="/login">Login</CustomLink>
-                    <button onClick={() => navigate('signup')}>Sign Up</button>
+                    {!user ? (
+                        <>
+                            <CustomLink to="/login">Login</CustomLink>
+                            <button onClick={() => navigate('signup')}>
+                                Sign Up
+                            </button>
+                        </>
+                    ) : (
+                        <button onClick={() => signOut(auth)}>
+                            Sign Out
+                        </button>
+                    )}
                 </div>
             </nav>
         </div>
