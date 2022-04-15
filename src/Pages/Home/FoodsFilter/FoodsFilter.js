@@ -1,19 +1,36 @@
 import React from 'react';
-import { Link, Outlet } from 'react-router-dom';
+import { Link, Outlet, useMatch, useResolvedPath } from 'react-router-dom';
 import useFoods from '../../../hooks/useFoods';
 import './FoodsFilter.css';
 
 const FoodsFilter = () => {
     const [filterItems] = useFoods();
 
+    function CustomLink({ children, to, ...props }) {
+        let resolved = useResolvedPath(to);
+        let match = useMatch({ path: resolved.pathname, end: true });
+      
+        return (
+          <div>
+            <Link
+              style={{ color: match ? "#f91944" : "#000" }}
+              to={to}
+              {...props}
+            >
+              {children}
+            </Link>
+          </div>
+        );
+      }
+
     return (
         <div className="food-container">
             <div className="container">
                 <div className="filter-toggle">
                     {filterItems?.map((filterItem) => (
-                        <Link key={filterItem._id} to={filterItem.name}>
+                        <CustomLink key={filterItem._id} to={filterItem.name}>
                             {filterItem.name}
-                        </Link>
+                        </CustomLink>
                     ))}
                 </div>
 
