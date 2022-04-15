@@ -1,0 +1,25 @@
+.header-container .container {
+    display: flex;
+    justify-content: space-between;
+    height: 80px;
+    align-items: center;
+}
+
+.navigation {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.navigation svg {
+    cursor: pointer;
+}
+
+.navigation svg, .navigation a {
+    font-size: 18px;
+    transition: .3s ease-in-out;
+}
+
+.navigation svg:hover, .navigation a:hover {
+    color: #f91944;
+}
