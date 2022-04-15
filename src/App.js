@@ -3,6 +3,7 @@ import './App.css';
 import Footer from './Pages/Common/Footer/Footer';
 import Header from './Pages/Common/Header/Header';
 import FilterItem from './Pages/Home/FilterItem/FilterItem';
+import FoodArchive from './Pages/Home/FoodArchive/FoodArchive';
 import Home from './Pages/Home/Home/Home';
 
 function App() {
@@ -11,8 +12,9 @@ function App() {
       <Header></Header>
       <Routes>
         <Route path='/' element={<Home></Home>}>
-          <Route path=':foodName' element={<FilterItem></FilterItem>}></Route>
+          <Route path=':foodCategory' element={<FilterItem></FilterItem>}></Route>
         </Route>
+        <Route path='food/:foodId' element={<FoodArchive></FoodArchive>}></Route>
         <Route path='/home' element={<Home></Home>}></Route>
       </Routes>
       <Footer></Footer>

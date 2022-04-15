@@ -4,7 +4,7 @@ import useFoods from '../../../hooks/useFoods';
 import './FoodsFilter.css';
 
 const FoodsFilter = () => {
-    const [filterItems] = useFoods();
+    const [filterItems] = useFoods('data.json');
 
     function CustomLink({ children, to, ...props }) {
         let resolved = useResolvedPath(to);
@@ -29,8 +29,8 @@ const FoodsFilter = () => {
             <div className="container">
                 <div className="filter-toggle">
                     {filterItems?.map((filterItem) => (
-                        <CustomLink key={filterItem._id} to={filterItem.name}>
-                            {filterItem.name}
+                        <CustomLink key={filterItem._id} to={filterItem.category}>
+                            {filterItem.category}
                         </CustomLink>
                     ))}
                 </div>

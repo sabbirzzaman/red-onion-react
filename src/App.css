@@ -15,8 +15,23 @@ p, a {
     font-size: 16px;
 }
 
+p {
+    color: #696969;
+}
+
 h1 {
     font-size: 48px;
+    font-weight: 500;
+}
+
+h2 {
+    font-size: 42px;
+    font-weight: 500;
+}
+
+h3 {
+    font-size: 34px;
+    font-weight: 500;
 }
 
 button {

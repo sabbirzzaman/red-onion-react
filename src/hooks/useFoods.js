@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 
-const useFoods = () => {
+const useFoods = (dataPath) => {
     const [foods, setFoods] = useState([]);
 
     useEffect(() => {
-        fetch('data.json')
+        fetch(dataPath)
             .then((res) => res.json())
             .then((data) => setFoods(data));
     }, []);

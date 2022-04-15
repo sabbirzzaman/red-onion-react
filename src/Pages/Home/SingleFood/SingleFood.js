@@ -1,13 +1,16 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import './SingleFood.css'
 
 const SingleFood = ({food}) => {
+    const {id, image, name, price} = food;
+    const navigate = useNavigate();
 
     return (
-        <div className='food-item'>
-            <img width={200} src={food.image} alt={food.name} />
-            <p>{food.name}</p>
-            <h3>{food.price}</h3>
+        <div onClick={() => navigate(`/food/${id}`)} className='food-item'>
+            <img width={200} src={image} alt={name} />
+            <p>{name}</p>
+            <h3>{price}</h3>
         </div>
     );
 };

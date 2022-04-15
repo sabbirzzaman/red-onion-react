@@ -5,16 +5,15 @@ import SingleFood from '../SingleFood/SingleFood';
 import './FilterItem.css'
 
 const FilterItem = () => {
-    const { foodName } = useParams();
+    const { foodCategory } = useParams();
+    const [filterItem] = useFoods('data.json');
 
-    const [filterItem] = useFoods();
+    const foodItem = filterItem.find((foods) => foods.category === foodCategory);
 
-    const foodCategory = filterItem.find((foods) => foods.name === foodName);
-
-    if(foodCategory) {
+    if(foodItem) {
         return (
             <div className='filter-container'>
-                {foodCategory.foods.map((food) => (
+                {foodItem.foods.map((food) => (
                     <SingleFood key={food.id} food={food}></SingleFood>
                 ))}
             </div>
