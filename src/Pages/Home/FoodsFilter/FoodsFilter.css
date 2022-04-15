@@ -7,14 +7,34 @@
     max-width: 950px;
 }
 
-.food-container a {
+.toggle {
     color: #000;
     font-size: 18px;
     font-weight: 500;
     transition: .3s ease-in-out;
+    position: relative;
 }
 
-.food-container a:hover {
+.toggle::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 0;
+    height: 3px;
+    background-color: #f91944;
+    transition: .3s ease-in-out;
+}
+
+.toggle:hover::after {
+    width: 100%;
+}
+
+.active::after {
+    width: 100%;
+}
+
+.toggle:hover {
     color: #f91944;
 }
 

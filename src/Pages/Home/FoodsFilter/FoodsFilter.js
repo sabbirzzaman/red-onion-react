@@ -9,19 +9,20 @@ const FoodsFilter = () => {
     function CustomLink({ children, to, ...props }) {
         let resolved = useResolvedPath(to);
         let match = useMatch({ path: resolved.pathname, end: true });
-      
+
         return (
-          <div>
-            <Link
-              style={{ color: match ? "#f91944" : "#000" }}
-              to={to}
-              {...props}
-            >
-              {children}
-            </Link>
-          </div>
+            <div>
+                <Link
+                    className={`toggle ${match ? 'active' : ''}`}
+                    style={{ color: match ? '#f91944' : '' }}
+                    to={to}
+                    {...props}
+                >
+                    {children}
+                </Link>
+            </div>
         );
-      }
+    }
 
     return (
         <div className="food-container">
