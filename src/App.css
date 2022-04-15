@@ -15,6 +15,10 @@ p, a {
     font-size: 16px;
 }
 
+h1 {
+    font-size: 48px;
+}
+
 button {
     background-color: #f91944;
     color: #FFF;
