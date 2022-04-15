@@ -23,7 +23,7 @@ const Header = () => {
                 <div className="navigation">
                     <FontAwesomeIcon icon={faShoppingCart}></FontAwesomeIcon>
                     <Link to="/">Login</Link>
-                    <button>Sign Up</button>
+                    <button onClick={() => navigate('signup')}>Sign Up</button>
                 </div>
             </nav>
         </div>

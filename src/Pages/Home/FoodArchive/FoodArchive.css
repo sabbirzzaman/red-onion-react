@@ -12,7 +12,9 @@
     margin-right: 50px;
 }
 
-.food-details h2, p, h3 {
+.food-details h2,
+.food-details p,
+.food-details h3 {
     margin-bottom: 20px;
 }
 
@@ -29,4 +31,3 @@
 .food-image img {
     width: 80%;
 }
-

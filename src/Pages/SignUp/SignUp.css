@@ -1,0 +1,41 @@
+.form-container {
+    background-image: url('../../images/login-bg.png');
+    background-size: cover;
+    background-position: bottom;
+    background-repeat: no-repeat;
+    padding: 80px 0;
+    text-align: center;
+}
+
+.form-container img {
+    margin-bottom: 50px;
+}
+
+.form-container a {
+    color: #f91944;
+}
+
+.form {
+    width: 400px;
+    margin: 0 auto;
+}
+
+.form input {
+    width: 100%;
+    padding: 15px;
+    background-color: #f5f5f5;
+    border: none;
+    border-radius: 4px;
+    margin-bottom: 15px;
+}
+
+.form input[type=button] {
+    background-color: #f91944;
+    color: #FFF;
+    cursor: pointer;
+    transition: .3s ease-in-out;
+}
+
+input[type=button]:hover {
+    background-color: #e8123b;
+}

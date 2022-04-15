@@ -13,9 +13,6 @@
 
 p, a {
     font-size: 16px;
-}
-
-p {
     color: #696969;
     line-height: 26px;
 }
@@ -47,7 +44,7 @@ button {
 }
 
 button:hover {
-    background-color: #f40a37;
+    background-color: #e8123b;
 }
 
 .loading {

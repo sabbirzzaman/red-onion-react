@@ -5,6 +5,7 @@ import Header from './Pages/Common/Header/Header';
 import FilterItem from './Pages/Home/FilterItem/FilterItem';
 import FoodArchive from './Pages/Home/FoodArchive/FoodArchive';
 import Home from './Pages/Home/Home/Home';
+import SignUp from './Pages/SignUp/SignUp';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         </Route>
         <Route path='food/:foodId' element={<FoodArchive></FoodArchive>}></Route>
         <Route path='/home' element={<Home></Home>}></Route>
+        <Route path='signup' element={<SignUp></SignUp>}></Route>
       </Routes>
       <Footer></Footer>
     </>
