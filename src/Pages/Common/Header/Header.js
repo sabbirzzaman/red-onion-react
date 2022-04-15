@@ -1,13 +1,30 @@
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useMatch, useResolvedPath } from 'react-router-dom';
 import logo from '../../../images/logo2.png';
 import './Header.css';
 
 const Header = () => {
+    function CustomLink({ children, to, ...props }) {
+        let resolved = useResolvedPath(to);
+        let match = useMatch({ path: resolved.pathname, end: true });
+
+        return (
+            <div>
+                <Link
+                    style={{ color: match ? '#f91944' : '' }}
+                    to={to}
+                    {...props}
+                >
+                    {children}
+                </Link>
+            </div>
+        );
+    }
+
     const navigate = useNavigate();
-    
+
     return (
         <div className="header-container">
             <nav className="container">
@@ -22,7 +39,7 @@ const Header = () => {
 
                 <div className="navigation">
                     <FontAwesomeIcon icon={faShoppingCart}></FontAwesomeIcon>
-                    <Link to="/login">Login</Link>
+                    <CustomLink to="/login">Login</CustomLink>
                     <button onClick={() => navigate('signup')}>Sign Up</button>
                 </div>
             </nav>

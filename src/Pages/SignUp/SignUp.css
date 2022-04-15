@@ -29,13 +29,13 @@
     margin-bottom: 15px;
 }
 
-.form input[type=button] {
+.form input[type=submit] {
     background-color: #f91944;
     color: #FFF;
     cursor: pointer;
     transition: .3s ease-in-out;
 }
 
-input[type=button]:hover {
+input[type=submit]:hover {
     background-color: #e8123b;
 }
