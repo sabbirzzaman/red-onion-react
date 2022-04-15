@@ -1,8 +1,9 @@
 import React from 'react';
+import { InfinitySpin } from 'react-loader-spinner';
 import { useParams } from 'react-router-dom';
 import useFoods from '../../../hooks/useFoods';
 import SingleFood from '../SingleFood/SingleFood';
-import './FilterItem.css'
+import './FilterItem.css';
 
 const FilterItem = () => {
     const { foodCategory } = useParams();
@@ -10,9 +11,17 @@ const FilterItem = () => {
 
     const foodItem = filterItem.find((foods) => foods.category === foodCategory);
 
-    if(foodItem) {
+    if(!foodItem) {
         return (
-            <div className='filter-container'>
+            <div className='loading'>
+                <InfinitySpin color="red" />
+            </div>
+        )
+    }
+
+    if (foodItem) {
+        return (
+            <div className="filter-container">
                 {foodItem.foods.map((food) => (
                     <SingleFood key={food.id} food={food}></SingleFood>
                 ))}

@@ -17,6 +17,7 @@ p, a {
 
 p {
     color: #696969;
+    line-height: 26px;
 }
 
 h1 {
@@ -47,4 +48,11 @@ button {
 
 button:hover {
     background-color: #f40a37;
+}
+
+.loading {
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

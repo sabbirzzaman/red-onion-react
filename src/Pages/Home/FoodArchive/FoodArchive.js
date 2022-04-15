@@ -1,6 +1,7 @@
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
+import { InfinitySpin } from 'react-loader-spinner';
 import { useParams } from 'react-router-dom';
 import useFoods from '../../../hooks/useFoods';
 import './FoodArchive.css';
@@ -12,6 +13,14 @@ const FoodArchive = () => {
     const singleFood = foods.find(
         (food) => parseInt(food.id) === parseInt(foodId)
     );
+
+    if(!singleFood) {
+        return (
+            <div className='loading'>
+                <InfinitySpin color="red" />
+            </div>
+        )
+    }
 
     if (singleFood) {
         const { image, name, price, details } = singleFood;
