@@ -7,6 +7,8 @@ import FoodArchive from './Pages/Home/FoodArchive/FoodArchive';
 import Home from './Pages/Home/Home/Home';
 import Login from './Pages/Login/Login';
 import SignUp from './Pages/SignUp/SignUp';
+import Recipes from './Pages/Recipes/Recipes/Recipes';
+import ShareRecipes from './Pages/ShareRecipes/ShareRecipes/ShareRecipes';
 import './App.css';
 
 function App() {
@@ -17,8 +19,10 @@ function App() {
         <Route path='/' element={<Home></Home>}>
           <Route path=':foodCategory' element={<FilterItem></FilterItem>}></Route>
         </Route>
-        <Route path='food/:foodId' element={<FoodArchive></FoodArchive>}></Route>
         <Route path='home' element={<Home></Home>}></Route>
+        <Route path='food/:foodId' element={<FoodArchive></FoodArchive>}></Route>
+        <Route path='recipes' element={<Recipes></Recipes>}></Route>
+        <Route path='share-recipes' element={<ShareRecipes></ShareRecipes>}></Route>
         <Route path='checkout/:id' element={<Checkout></Checkout>}></Route>
         <Route path='signup' element={<SignUp></SignUp>}></Route>
         <Route path='login' element={<Login></Login>}></Route>

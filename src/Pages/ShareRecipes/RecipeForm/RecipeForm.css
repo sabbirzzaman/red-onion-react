@@ -1,0 +1,29 @@
+.recipe-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.recipe-form input,
+.recipe-form textarea {
+    background-color: #f5f5f5;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    resize: none;
+}
+
+.recipe-form textarea {
+    height: 200px;
+}
+
+.recipe-form input[type=submit] {
+    background-color: #f91944;
+    color: #FFF;
+    cursor: pointer;
+    transition: .3s ease-in-out;
+}
+
+.recipe-form input[type=submit]:hover {
+    background-color: #e8123b;
+}

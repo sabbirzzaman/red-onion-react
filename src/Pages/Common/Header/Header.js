@@ -42,19 +42,22 @@ const Header = () => {
                     />
                 </div>
 
+                <div className="nav-menu">
+                </div>
+
                 <div className="navigation">
+                    <CustomLink to="/">Home</CustomLink>
+                    <CustomLink to="/recipes">Recipes</CustomLink>
+                    <CustomLink to="/share-recipes">Post Recipes</CustomLink>
                     <FontAwesomeIcon icon={faShoppingCart}></FontAwesomeIcon>
                     {!user ? (
                         <>
-                            <CustomLink to="/login">Login</CustomLink>
-                            <button onClick={() => navigate('signup')}>
-                                Sign Up
+                            <button onClick={() => navigate('login')}>
+                                Login
                             </button>
                         </>
                     ) : (
-                        <button onClick={() => signOut(auth)}>
-                            Sign Out
-                        </button>
+                        <button onClick={() => signOut(auth)}>Sign Out</button>
                     )}
                 </div>
             </nav>
