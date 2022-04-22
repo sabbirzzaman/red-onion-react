@@ -2,7 +2,7 @@ import { faMinus, faPlus, faShoppingCart } from '@fortawesome/free-solid-svg-ico
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import { InfinitySpin } from 'react-loader-spinner';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import useFoods from '../../../hooks/useFoods';
 import './FoodArchive.css';
 
@@ -10,6 +10,8 @@ const FoodArchive = () => {
     const { foodId } = useParams();
     const [foods] = useFoods('../singleData.json');
     const [quantity, setQuantity] = useState(1);
+
+    const navigate = useNavigate();
 
     const singleFood = foods.find(
         (food) => parseInt(food.id) === parseInt(foodId)
@@ -24,7 +26,7 @@ const FoodArchive = () => {
     }
 
     if (singleFood) {
-        const { image, name, price, details } = singleFood;
+        const { id, image, name, price, details } = singleFood;
 
         return (
             <div className="archive-container">
@@ -35,7 +37,7 @@ const FoodArchive = () => {
                         <h3>{price}</h3>
 
                         <div className="add-to-cart">
-                            <button>
+                            <button onClick={() => navigate(`/checkout/${id}`)}>
                                 <FontAwesomeIcon
                                     icon={faShoppingCart}
                                 ></FontAwesomeIcon>{' '}
