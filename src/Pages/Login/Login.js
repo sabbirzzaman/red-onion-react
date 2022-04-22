@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { InfinitySpin } from 'react-loader-spinner';
 import { Link, useNavigate } from 'react-router-dom';
@@ -21,9 +21,11 @@ const Login = () => {
         signInWithEmailAndPassword(email, password);
     };
 
-    if (user) {
-        navigate('/');
-    }
+    useEffect(() => {
+        if (user) {
+            navigate('/');
+        }
+    }, [user]);
 
     if (error) {
         console.log(error);

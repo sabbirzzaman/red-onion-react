@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import logo from '../../images/logo2.png';
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
@@ -24,9 +24,11 @@ const SignUp = () => {
         createUserWithEmailAndPassword(email, password);
     };
 
-    if (user) {
-        navigate('/');
-    }
+    useEffect(() => {
+        if (user) {
+            navigate('/');
+        }
+    }, [user]);
 
     if(error) {
         console.log(error)

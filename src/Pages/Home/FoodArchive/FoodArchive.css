@@ -18,10 +18,37 @@
     margin-bottom: 20px;
 }
 
-.food-details button {
+.add-to-cart {
     display: flex;
     align-items: center;
+    gap: 15px;
+}
+
+.food-details button {
+    display: inline-flex;
+    align-items: center;
     gap: 10px;
+}
+
+.food-quantity {
+    display: inline-flex;
+    align-items: center;
+    width: min-content;
+    border: 1px solid #696969;
+    border-radius: 50px;
+}
+
+.food-quantity input {
+    padding: 10px 5px;
+    width: 30px;
+    border: none;
+    outline: none;
+}
+
+.food-quantity button {
+    background-color: transparent;
+    color: black;
+    padding: 10px;
 }
 
 .food-image {
