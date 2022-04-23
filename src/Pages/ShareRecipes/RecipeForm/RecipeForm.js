@@ -15,9 +15,7 @@ const RecipeForm = () => {
             body: JSON.stringify(data),
         })
             .then((res) => res.json())
-            .then((result) => {
-                console.log('success', result)
-            });
+            .then((result) => console.log(result));
     };
 
     return (

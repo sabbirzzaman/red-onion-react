@@ -11,8 +11,6 @@ const CartItem = () => {
 
     const foodItem = foods.find((food) => parseInt(id) === parseInt(food.id));
 
-    console.log(foodItem);
-
     if (foodItem) {
         return (
             <div className="cart-items">

@@ -19,7 +19,6 @@ const UpdateRecipe = () => {
     // update recipe data
     const onSubmit = (data) => {
         const url = `http://localhost:5000/recipe/${recipeId}`;
-
         fetch(url, {
             method: 'PUT',
             headers: {
@@ -40,18 +39,15 @@ const UpdateRecipe = () => {
                         type="text"
                         placeholder="Recipe Name"
                         {...register('name')}
-                        required
                     />
                     <input
                         type="text"
                         placeholder="Image URL"
                         {...register('image')}
-                        required
                     />
                     <textarea
                         placeholder="Write your recipe here..."
                         {...register('instruction')}
-                        required
                     />
                     <input type="submit" value="Add Recipe" />
                 </form>

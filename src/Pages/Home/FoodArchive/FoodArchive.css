@@ -51,6 +51,10 @@
     padding: 10px;
 }
 
+.food-quantity button:hover {
+    background-color: transparent;
+}
+
 .food-image {
     text-align: right;
 }

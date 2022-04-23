@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { InfinitySpin } from 'react-loader-spinner';
-import { useLocation, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import useFoods from '../../../hooks/useFoods';
 import SingleFood from '../SingleFood/SingleFood';
 import './FilterItem.css';
@@ -11,20 +11,6 @@ const FilterItem = () => {
 
     // fetch the food data with useFoods hook
     const [filterItem] = useFoods('data.json');
-
-    const location = useLocation()
-
-    const [isHome, setIsHome] = useState(true);
-
-    useEffect(() => {
-        if(location.pathname) {
-            setIsHome(!isHome)
-        }
-    }, [])
-
-    console.log(isHome)
-
-    // console.log(isHome)
 
     // find the food item by category
     const foodItem = filterItem.find(
