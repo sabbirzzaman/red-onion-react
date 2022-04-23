@@ -1,0 +1,7 @@
+.recipe-container {
+    padding: 80px 0;
+}
+
+.recipe-container .container {
+    max-width: 900px;
+}

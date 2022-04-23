@@ -1,0 +1,33 @@
+.recipe-item {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin-bottom: 30px;
+    box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1),
+        0 8px 10px -6px rgb(0 0 0 / 0.1);
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.recipe-item img {
+    width: 350px;
+    border-radius: 4px;
+}
+
+.recipe-details p {
+    margin-bottom: 20px;
+}
+
+.recipe-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.recipe-btn button:first-child {
+    background-color: #22c55e;
+}
+
+.recipe-btn button:first-child:hover {
+    background-color: #15803d;
+}
