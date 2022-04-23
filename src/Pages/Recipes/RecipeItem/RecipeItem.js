@@ -1,11 +1,13 @@
 import React from 'react';
-import './RecipeItem.css'
+import { useNavigate } from 'react-router-dom';
+import './RecipeItem.css';
 
-const RecipeItem = ({recipe}) => {
-    const {image, name, instruction} = recipe;
+const RecipeItem = ({recipe, deleteRecipe}) => {
+    const { _id, image, name, instruction } = recipe;
+    const navigate = useNavigate();
 
     return (
-        <div className='recipe-item'>
+        <div className="recipe-item">
             <img src={image} alt={name} />
 
             <div className="recipe-details">
@@ -13,8 +15,10 @@ const RecipeItem = ({recipe}) => {
                 <p>{instruction}</p>
 
                 <div className="recipe-btn">
-                    <button>Edit Recipe</button>
-                    <button>Delete Recipe</button>
+                    <button onClick={() => navigate(`/update/${_id}`)}>Edit Recipe</button>
+                    <button onClick={() => deleteRecipe(_id)}>
+                        Delete Recipe
+                    </button>
                 </div>
             </div>
         </div>

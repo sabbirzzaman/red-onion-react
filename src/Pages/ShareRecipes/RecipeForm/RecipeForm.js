@@ -16,7 +16,7 @@ const RecipeForm = () => {
         })
             .then((res) => res.json())
             .then((result) => {
-                console.log(result);
+                console.log('success', result)
             });
     };
 
@@ -31,7 +31,6 @@ const RecipeForm = () => {
             <input
                 type="text"
                 placeholder="Image URL"
-                g
                 {...register('image')}
                 required
             />

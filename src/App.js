@@ -10,6 +10,7 @@ import SignUp from './Pages/SignUp/SignUp';
 import Recipes from './Pages/Recipes/Recipes/Recipes';
 import ShareRecipes from './Pages/ShareRecipes/ShareRecipes/ShareRecipes';
 import './App.css';
+import UpdateRecipe from './Pages/Recipes/UpdateRecipe/UpdateRecipe';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path='home' element={<Home></Home>}></Route>
         <Route path='food/:foodId' element={<FoodArchive></FoodArchive>}></Route>
         <Route path='recipes' element={<Recipes></Recipes>}></Route>
+        <Route path='update/:recipeId' element={<UpdateRecipe></UpdateRecipe>}></Route>
         <Route path='share-recipes' element={<ShareRecipes></ShareRecipes>}></Route>
         <Route path='checkout/:id' element={<Checkout></Checkout>}></Route>
         <Route path='signup' element={<SignUp></SignUp>}></Route>

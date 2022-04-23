@@ -1,18 +1,37 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { InfinitySpin } from 'react-loader-spinner';
-import { useParams } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
 import useFoods from '../../../hooks/useFoods';
 import SingleFood from '../SingleFood/SingleFood';
 import './FilterItem.css';
 
 const FilterItem = () => {
+    // get the food category name
     const { foodCategory } = useParams();
+
+    // fetch the food data with useFoods hook
     const [filterItem] = useFoods('data.json');
 
+    const location = useLocation()
+
+    const [isHome, setIsHome] = useState(true);
+
+    useEffect(() => {
+        if(location.pathname) {
+            setIsHome(!isHome)
+        }
+    }, [])
+
+    console.log(isHome)
+
+    // console.log(isHome)
+
+    // find the food item by category
     const foodItem = filterItem.find(
         (foods) => foods.category === foodCategory
     );
 
+    // loading animation
     if (!foodItem) {
         return (
             <div className="loading">
@@ -21,6 +40,7 @@ const FilterItem = () => {
         );
     }
 
+    // food items
     if (foodItem) {
         return (
             <div className="filter-container">

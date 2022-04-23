@@ -1,22 +1,37 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+import useFoods from '../../../hooks/useFoods';
 import RecipeItem from '../RecipeItem/RecipeItem';
-import './Recipes.css'
+import './Recipes.css';
 
 const Recipes = () => {
-    const [recipes, setRecipes] = useState([]);
+    // get recipe data
+    const [recipes, setRecipes] = useFoods('http://localhost:5000/recipes');
 
-    useEffect(() => {
-        fetch('http://localhost:5000/recipes')
-        .then(res => res.json())
-        .then(data => setRecipes(data))
-    }, [])
+    // delete recipe data
+    const handleDeleteRecipe = (id) => {
+        const url = `http://localhost:5000/recipe/${id}`;
 
-    console.log(recipes)
+        fetch(url, {
+            method: 'DELETE',
+        })
+            .then((res) => res.json())
+            .then((data) => {
+                console.log('deleted', data._id);
+                const remaining = recipes.filter((user) => user._id !== id);
+                setRecipes(remaining);
+            });
+    };
 
     return (
-        <div className='recipe-container'>
+        <div className="recipe-container">
             <div className="container">
-                {recipes.map(recipe => <RecipeItem key={recipe._id} recipe={recipe}></RecipeItem>)}
+                {recipes.map((recipe) => (
+                    <RecipeItem
+                        key={recipe._id}
+                        recipe={recipe}
+                        deleteRecipe={handleDeleteRecipe}
+                    ></RecipeItem>
+                ))}
             </div>
         </div>
     );
