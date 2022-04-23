@@ -5,6 +5,7 @@ import './RecipeForm.css';
 const RecipeForm = () => {
     const { register, handleSubmit } = useForm();
 
+    // post data to the server side
     const onSubmit = (data) => {
         fetch('http://localhost:5000/recipes', {
             method: 'POST',
