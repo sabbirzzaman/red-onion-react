@@ -9,14 +9,16 @@ const FilterItem = () => {
     const { foodCategory } = useParams();
     const [filterItem] = useFoods('data.json');
 
-    const foodItem = filterItem.find((foods) => foods.category === foodCategory);
+    const foodItem = filterItem.find(
+        (foods) => foods.category === foodCategory
+    );
 
-    if(!foodItem) {
+    if (!foodItem) {
         return (
-            <div className='loading'>
+            <div className="loading">
                 <InfinitySpin color="red" />
             </div>
-        )
+        );
     }
 
     if (foodItem) {

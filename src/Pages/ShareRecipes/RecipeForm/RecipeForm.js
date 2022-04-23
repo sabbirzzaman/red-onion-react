@@ -1,17 +1,26 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useForm } from 'react-hook-form';
-import './RecipeForm.css'
+import './RecipeForm.css';
 
 const RecipeForm = () => {
-    const [recipe, setRecipe] = useState({});
-
     const { register, handleSubmit } = useForm();
-    const onSubmit = (data) => setRecipe(data);
 
-    console.log(recipe);
+    const onSubmit = (data) => {
+        fetch('http://localhost:5000/recipes', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json',
+            },
+            body: JSON.stringify(data),
+        })
+            .then((res) => res.json())
+            .then((result) => {
+                console.log(result);
+            });
+    };
 
     return (
-        <form className='recipe-form' onSubmit={handleSubmit(onSubmit)}>
+        <form className="recipe-form" onSubmit={handleSubmit(onSubmit)}>
             <input
                 type="text"
                 placeholder="Recipe Name"
@@ -20,7 +29,8 @@ const RecipeForm = () => {
             />
             <input
                 type="text"
-                placeholder="Image URL"g
+                placeholder="Image URL"
+                g
                 {...register('image')}
                 required
             />
