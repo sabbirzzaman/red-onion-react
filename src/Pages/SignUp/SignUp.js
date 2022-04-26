@@ -21,7 +21,9 @@ const SignUp = () => {
         const email = emailRef.current.value;
         const password = passwordRef.current.value;
 
-        createUserWithEmailAndPassword(email, password);
+        createUserWithEmailAndPassword(email, password, {
+            sendEmailVerification: true,
+        });
     };
 
     useEffect(() => {
@@ -30,8 +32,8 @@ const SignUp = () => {
         }
     }, [user]);
 
-    if(error) {
-        console.log(error)
+    if (error) {
+        console.log(error);
     }
 
     if (loading) {

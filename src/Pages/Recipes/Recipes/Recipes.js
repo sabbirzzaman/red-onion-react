@@ -15,7 +15,10 @@ const Recipes = () => {
             method: 'DELETE',
         })
             .then((res) => res.json())
-            .then((data) => console.log(data));
+            .then((data) => {
+                const remainingRecipes = recipes.filter(recipe => recipe._id !== id)
+                setRecipes(remainingRecipes)
+            });
     };
 
     return (

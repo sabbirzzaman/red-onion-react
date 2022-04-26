@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { InfinitySpin } from 'react-loader-spinner';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 import logo from '../../images/logo2.png';
 
@@ -9,6 +9,7 @@ const Login = () => {
     const emailRef = useRef('');
     const passwordRef = useRef('');
     const navigate = useNavigate();
+    const location = useLocation();
 
     const [signInWithEmailAndPassword, user, loading, error] =
         useSignInWithEmailAndPassword(auth);
@@ -21,9 +22,11 @@ const Login = () => {
         signInWithEmailAndPassword(email, password);
     };
 
+    const from = location.state?.from?.pathname || '/';
+
     useEffect(() => {
         if (user) {
-            navigate('/');
+            navigate(from, { replace: true });
         }
     }, [user]);
 

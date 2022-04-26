@@ -10,7 +10,7 @@ const UpdateRecipe = () => {
 
     // get recipe item data
     const [recipe] = useFoods(`http://localhost:5000/recipe/${recipeId}`);
-
+    
     // get recipe name
     const { name } = recipe;
 

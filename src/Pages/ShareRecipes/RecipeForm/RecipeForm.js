@@ -27,6 +27,13 @@ const RecipeForm = () => {
                 required
             />
             <input
+                type="email"
+                placeholder="Your Email"
+                {...register('name')}
+                required
+                readOnly
+            />
+            <input
                 type="text"
                 placeholder="Image URL"
                 {...register('image')}
